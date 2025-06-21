@@ -75,7 +75,7 @@ def load_config() -> AppConfig:
     
     claude_config = ClaudeConfig(
         api_key="",  # Not needed when using OpenRouter API directly
-        model=os.getenv("AI_MODEL", "google/gemini-flash-1.5"),
+        model=os.getenv("AI_MODEL", "google/gemini-2.0-flash-exp"),
         max_turns=int(os.getenv("AI_MAX_TURNS", "1")),
         personality=os.getenv(
             "BOT_PERSONALITY",

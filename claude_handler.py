@@ -143,7 +143,7 @@ class ClaudeHandler:
             
             # Prepare the request payload
             payload = {
-                "model": "google/gemini-flash-1.5",
+                "model": "google/gemini-2.0-flash-exp",
                 "messages": [
                     {
                         "role": "system",
@@ -298,7 +298,7 @@ class ClaudeHandler:
             
             # Prepare the request payload
             payload = {
-                "model": "google/gemini-flash-1.5",
+                "model": "google/gemini-2.0-flash-exp",
                 "messages": [
                     {
                         "role": "system",

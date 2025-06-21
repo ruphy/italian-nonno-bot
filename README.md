@@ -53,7 +53,7 @@ A fun Telegram bot that impersonates a lovable Italian grandfather (nonno) in yo
    - Visit [https://openrouter.ai/keys](https://openrouter.ai/keys)
    - Create an account or log in
    - Generate an API key
-   - Add some credits to your account (Gemini Flash 1.5 is very affordable)
+   - Add some credits to your account (Gemini 2.0 Flash is very affordable)
 
 5. **Configure the bot**
    ```bash
@@ -70,7 +70,13 @@ A fun Telegram bot that impersonates a lovable Italian grandfather (nonno) in yo
    - `OPENROUTER_API_KEY` from step 4
    - Customize `BOT_PERSONALITY` to match your desired character
 
-6. **Run the bot**
+6. **First-time authentication (optional but recommended)**
+   ```bash
+   # Optional: Authenticate separately for cleaner setup
+   python auth.py
+   ```
+   
+   Or authenticate during first run:
    ```bash
    python main.py
    ```
@@ -86,7 +92,7 @@ The bot is highly customizable through the `.env` file:
 
 ### Personality Settings
 - `BOT_PERSONALITY`: Define your character's personality (Italian grandfather by default)
-- `AI_MODEL`: OpenRouter model to use (default: `google/gemini-flash-1.5`)
+- `AI_MODEL`: OpenRouter model to use (default: `google/gemini-2.0-flash-exp`)
 
 ### Behavior Settings  
 - `CONTEXT_MESSAGES`: Number of previous messages to remember (default: 20)
