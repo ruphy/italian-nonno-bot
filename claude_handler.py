@@ -32,7 +32,6 @@ class ClaudeHandler:
         prompt_parts.append(f"<context>")
         prompt_parts.append(f"Group: {group_name}")
         prompt_parts.append(f"Your personality: {self.config.personality}")
-        prompt_parts.append(f"Response style: {getattr(self.config, 'style', 'casual')}")
         prompt_parts.append("</context>\n")
         
         # Add conversation history

@@ -28,7 +28,6 @@ class ClaudeConfig:
 @dataclass
 class ResponseConfig:
     """Response behavior configuration"""
-    style: str
     context_messages: int
     delay_min: float
     delay_max: float
@@ -85,7 +84,6 @@ def load_config() -> AppConfig:
     )
     
     response_config = ResponseConfig(
-        style=os.getenv("RESPONSE_STYLE", "casual"),
         context_messages=int(os.getenv("CONTEXT_MESSAGES", "20")),
         delay_min=float(os.getenv("RESPONSE_DELAY_MIN", "1")),
         delay_max=float(os.getenv("RESPONSE_DELAY_MAX", "3"))
@@ -109,11 +107,6 @@ def load_config() -> AppConfig:
 
 def validate_config(config: AppConfig) -> None:
     """Validate configuration values"""
-    
-    # Validate response style
-    valid_styles = ["formal", "casual", "technical"]
-    if config.response.style not in valid_styles:
-        raise ValueError(f"Invalid response style. Must be one of: {', '.join(valid_styles)}")
     
     # Validate log level
     valid_log_levels = ["DEBUG", "INFO", "WARNING", "ERROR"]

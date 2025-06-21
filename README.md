@@ -86,7 +86,6 @@ The bot is highly customizable through the `.env` file:
 
 ### Personality Settings
 - `BOT_PERSONALITY`: Define your character's personality (Italian grandfather by default)
-- `RESPONSE_STYLE`: Choose between `formal`, `casual`, or `technical`
 - `AI_MODEL`: OpenRouter model to use (default: `google/gemini-flash-1.5`)
 
 ### Behavior Settings  
