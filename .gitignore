@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Environment variables (keep your actual credentials safe!)
+.env
+.env.local
+.env.production
+
+# Telethon session files (contain authentication data)
+*.session
+*.session-journal
+
+# API Keys and secrets
+config.json
+secrets.json
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs (may contain sensitive information)
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+config.json
+sessions/
