@@ -131,8 +131,8 @@ class TelegramClaudeBot:
             logger.info("Responding to direct reply")
             return True
         
-        # Always respond to mentions (@ruphy or "riccardo")
-        if "@ruphy" in message_text or "riccardo" in message_text:
+        # Always respond to configured trigger words
+        if any(trigger in message_text for trigger in self.config.response.trigger_words):
             logger.info("Responding to mention")
             return True
         
@@ -258,7 +258,7 @@ class TelegramClaudeBot:
             # Check rate limits (but allow direct replies and mentions even if rate limited)
             message = message_data['message']
             message_text = message.text.lower() if message.text else ""
-            is_direct = message.reply_to_msg_id or "@ruphy" in message_text or "riccardo" in message_text
+            is_direct = message.reply_to_msg_id or any(trigger in message_text for trigger in self.config.response.trigger_words)
             
             if not is_direct and not self.rate_limiter.can_send_message():
                 logger.warning("Rate limit exceeded, skipping non-direct message")

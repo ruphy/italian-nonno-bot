@@ -31,6 +31,7 @@ class ResponseConfig:
     context_messages: int
     delay_min: float
     delay_max: float
+    trigger_words: list
 
 
 @dataclass
@@ -83,10 +84,15 @@ def load_config() -> AppConfig:
         )
     )
     
+    # Parse trigger words from comma-separated string
+    trigger_words_str = os.getenv("TRIGGER_WORDS", "")
+    trigger_words = [word.strip().lower() for word in trigger_words_str.split(",") if word.strip()]
+    
     response_config = ResponseConfig(
         context_messages=int(os.getenv("CONTEXT_MESSAGES", "20")),
         delay_min=float(os.getenv("RESPONSE_DELAY_MIN", "1")),
-        delay_max=float(os.getenv("RESPONSE_DELAY_MAX", "3"))
+        delay_max=float(os.getenv("RESPONSE_DELAY_MAX", "3")),
+        trigger_words=trigger_words
     )
     
     safety_config = SafetyConfig(
